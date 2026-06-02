@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [monkci-ubuntu-24.04-4, macos-latest]
+        os: [monkci-ubuntu-24.04-32, macos-latest]
         go-bin: ['~/go/bin']
         include:
           - os: windows-latest
@@ -75,7 +75,7 @@ jobs:
       run:
         working-directory: ./nats-server
     name: nats-server tests (ubuntu-latest / stable)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -107,7 +107,7 @@ jobs:
       run:
         working-directory: ./async-nats
     name: TLS tests (${{ matrix.tls_feature }} / ubuntu-latest)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     strategy:
       fail-fast: false
       matrix:
@@ -143,7 +143,7 @@ jobs:
       run:
         working-directory: ./async-nats
     name: Test against nats-server v2.11.9 (ubuntu-latest)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -176,7 +176,7 @@ jobs:
 
   check_format:
     name: check format (ubuntu-latest / nightly)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -193,7 +193,7 @@ jobs:
       run:
         working-directory: ./async-nats
     name: check linter (ubuntu-latest / stable)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -217,7 +217,7 @@ jobs:
       run:
         working-directory: ./async-nats
     name: check docs (ubuntu-latest / stable)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -236,7 +236,7 @@ jobs:
 
   check_licenses:
     name: check licenses (ubuntu-latest / stable)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -251,7 +251,7 @@ jobs:
       run:
         working-directory: ./async-nats
     name: check minimal supported rust version (ubuntu-latest / msrv)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -276,7 +276,7 @@ jobs:
       run:
         working-directory: ./async-nats
     name: check examples (ubuntu-latest / stable)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -297,7 +297,7 @@ jobs:
 
   check_spelling:
     name: check spelling (ubuntu-latest / nightly)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -325,7 +325,7 @@ jobs:
       run:
         working-directory: ./async-nats
     name: check minimal versions of transitive dependencies (ubuntu-latest / stable)
-    runs-on: monkci-ubuntu-24.04-4
+    runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
