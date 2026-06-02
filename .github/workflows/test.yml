@@ -74,7 +74,7 @@ jobs:
     defaults:
       run:
         working-directory: ./nats-server
-    name: nats-server tests (ubuntu-latest / stable)
+    name: nats-server tests (monkci-ubuntu / stable)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
@@ -106,7 +106,7 @@ jobs:
     defaults:
       run:
         working-directory: ./async-nats
-    name: TLS tests (${{ matrix.tls_feature }} / ubuntu-latest)
+    name: TLS tests (${{ matrix.tls_feature }} / monkci-ubuntu)
     runs-on: monkci-ubuntu-24.04-32
     strategy:
       fail-fast: false
@@ -142,7 +142,7 @@ jobs:
     defaults:
       run:
         working-directory: ./async-nats
-    name: Test against nats-server v2.11.9 (ubuntu-latest)
+    name: Test against nats-server v2.11.9 (monkci-ubuntu)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
@@ -175,12 +175,12 @@ jobs:
           cargo test --no-default-features --features jetstream,kv,object-store,service,nkeys,nuid,crypto,websockets,ring,server_2_10,server_2_11
 
   check_format:
-    name: check format (ubuntu-latest / nightly)
+    name: check format (monkci-ubuntu / nightly)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-      - name: Install nightly Rust on ubuntu-latest
+      - name: Install nightly Rust on monkci-ubuntu
         id:   install-rust
         uses: dtolnay/rust-toolchain@nightly
         with:
@@ -192,13 +192,13 @@ jobs:
     defaults:
       run:
         working-directory: ./async-nats
-    name: check linter (ubuntu-latest / stable)
+    name: check linter (monkci-ubuntu / stable)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Install stable Rust on ubuntu-latest
+      - name: Install stable Rust on monkci-ubuntu
         id:   install-rust
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -216,13 +216,13 @@ jobs:
     defaults:
       run:
         working-directory: ./async-nats
-    name: check docs (ubuntu-latest / stable)
+    name: check docs (monkci-ubuntu / stable)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Install stable Rust on ubuntu-latest
+      - name: Install stable Rust on monkci-ubuntu
         id:   install-rust
         uses: dtolnay/rust-toolchain@nightly
       - name: Restore cached build artifacts
@@ -235,7 +235,7 @@ jobs:
         run: cargo doc --no-deps --all-features
 
   check_licenses:
-    name: check licenses (ubuntu-latest / stable)
+    name: check licenses (monkci-ubuntu / stable)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
@@ -250,13 +250,13 @@ jobs:
     defaults:
       run:
         working-directory: ./async-nats
-    name: check minimal supported rust version (ubuntu-latest / msrv)
+    name: check minimal supported rust version (monkci-ubuntu / msrv)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Install msrv Rust on ubuntu-latest
+      - name: Install msrv Rust on monkci-ubuntu
         id:   install-rust
         uses: dtolnay/rust-toolchain@1.88.0
       - name: Cache the build artifacts
@@ -275,13 +275,13 @@ jobs:
     defaults:
       run:
         working-directory: ./async-nats
-    name: check examples (ubuntu-latest / stable)
+    name: check examples (monkci-ubuntu / stable)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Install stable Rust on ubuntu-latest
+      - name: Install stable Rust on monkci-ubuntu
         id:   install-rust
         uses: dtolnay/rust-toolchain@stable
       - name: Restore cached build artifacts
@@ -296,7 +296,7 @@ jobs:
         run: cargo check --examples
 
   check_spelling:
-    name: check spelling (ubuntu-latest / nightly)
+    name: check spelling (monkci-ubuntu / nightly)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
@@ -304,7 +304,7 @@ jobs:
       - name: Install llvm-config
         run: sudo apt-get install -y libclang-dev
 
-      - name: Install nightly Rust on ubuntu-latest
+      - name: Install nightly Rust on monkci-ubuntu
         id:   install-rust
         uses: dtolnay/rust-toolchain@nightly
       - name: Cache cargo-spellcheck
@@ -324,7 +324,7 @@ jobs:
     defaults:
       run:
         working-directory: ./async-nats
-    name: check minimal versions of transitive dependencies (ubuntu-latest / stable)
+    name: check minimal versions of transitive dependencies (monkci-ubuntu / stable)
     runs-on: monkci-ubuntu-24.04-32
     steps:
       - name: Check out repository
